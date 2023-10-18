@@ -8,7 +8,7 @@ public class Game extends PApplet {
     Ball ball;
     int x;
     Brick brick;
-    Brick[] bricks;
+    ArrayList<Brick> bricks;
     public void settings() {
         size(800, 800);   // set the window size
 
@@ -22,9 +22,12 @@ public class Game extends PApplet {
         ball = new Ball(400,500, 30, 2,-5);
         brick = new Brick(5, 0, 80,40);
 
-        for (int i = 0; i < bricks.length; i++) {
-            bricks[i] = new Brick(10 + 13*i, i * 20, 60, 20);
+        for (int j = 0; j < 6; j++) {
+            for (int i = 0; i < 12; i++) {
+                bricks.add(new Brick(10 + 80 * i, j * 40, 80, 40));
+            }
         }
+
     }
 
     /***

@@ -20,14 +20,24 @@ public class Paddle {
             this.ySize = ys;
         }
 
-        public void ballHit(){
+        public void ballHit(Ball ball){
             //if the ball hits the paddle change ball direction
+
         }
 
-        public  void draw(PApplet window){
+        public void draw(PApplet window){
             window.fill(255,255,255);
             window.rect(x, 600, xSize, ySize);
         }
+
+        public void move(PApplet window){
+            x = window.mouseX-50;
+        }
+
+
+
+
+
 
 
     }
