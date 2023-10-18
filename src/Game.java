@@ -24,7 +24,7 @@ public class Game extends PApplet {
 
         for (int j = 0; j < 6; j++) {
             for (int i = 0; i < 12; i++) {
-                bricks.add(new Brick(10 + 80 * i, j * 40, 80, 40));
+                bricks.add(new Brick(80 * i, j * 40, 80, 40));
             }
         }
 
