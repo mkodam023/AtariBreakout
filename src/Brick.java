@@ -26,22 +26,22 @@ public class Brick {
     }
 
     public void draw(PApplet window){
-        if (y<=100){
+        if (y<40){
             window.fill(255,0,0);       // red
           //  y=y;
-        }else if(y>100&&y<=200){
+        }else if(y>40&&y<=80){
             window.fill(255,165,0);     // orange
            // y= y+20;
-        }else if(y>200&&y<=300){
+        }else if(y>80&&y<=120){
             window.fill(255,255,10);   // yellow
           //  y=y+40;
-        }else if(y>300&&y<=400){
+        }else if(y>120&&y<=160){
             window.fill(0,255,0);      // green
           //  y=y+60;
-        }else if(y>400&&y<=500){
+        }else if(y>160&&y<=200){
             window.fill(0,0,255);      //blue
            // y=y+80;
-        }else if(y>500&&y<=600){
+        }else if(y>200&&y<=240){
             window.fill(255,0,255);    //purple
            // y = y+100;
         }

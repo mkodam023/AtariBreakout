@@ -1,11 +1,21 @@
 import processing.core.PApplet;
 
 public class Paddle {
-        int x;
+        int x,y;
         int xSize;
         int ySize;
-        public Paddle(int x, int xs, int ys){
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Paddle(int x, int y, int xs, int ys){
             this.x = x;
+            this.y = y;
             this.xSize = xs;
             this.ySize = ys;
         }

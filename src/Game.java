@@ -17,10 +17,10 @@ public class Game extends PApplet {
     public void setup() {
         // TODO: initialize game variables
         x = 200;
-        bricks = new Brick[78];
-        paddle = new Paddle(x,100,20);
-        ball = new Ball(400,500, 30);
-        brick = new Brick(5, 0, 60,20);
+        bricks = new ArrayList<>();
+        paddle = new Paddle(x,20, 100,20);
+        ball = new Ball(400,500, 30, 2,-5);
+        brick = new Brick(5, 0, 80,40);
 
         for (int i = 0; i < bricks.length; i++) {
             bricks[i] = new Brick(10 + 13*i, i * 20, 60, 20);
@@ -35,9 +35,32 @@ public class Game extends PApplet {
         background(0);
         fill(0,0,255);
         paddle.draw(this);
-        ball.draw(this);
+
         for (Brick brick : bricks) {
             brick.draw(this);
+        }
+        ball.draw(this);
+        ball.move(this);
+        paddle.move(this);
+        if (ball.x>=800){
+            ball.xBorderBounce(this);
+        }
+
+        if (ball.y>=800){
+            ball.y = 400;
+        }
+
+        if (ball.x<=0){
+            ball.xBorderBounce(this);
+        }
+
+        if (ball.y<=0){
+            ball.yBorderBounce(this);
+        }
+
+        if (ball.paddleCollision(paddle)){
+            ball.yBorderBounce(this);
+
         }
     }
 
