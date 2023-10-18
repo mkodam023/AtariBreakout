@@ -51,6 +51,6 @@ public class Ball {
     }
 
     public boolean paddleCollision(Paddle paddle){
-        return y >= 700 && x >= paddle.x && x <= paddle.x + 100;
+        return y >= 590&&y<=610 && x >= paddle.x && x <= paddle.x + 100;
     }
 }
