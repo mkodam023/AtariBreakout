@@ -1,5 +1,7 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class Game extends PApplet {
     // TODO: declare game variables
 
@@ -10,6 +12,15 @@ public class Game extends PApplet {
 
     public void setup() {
         // TODO: initialize game variables
+        x = 200;
+        bricks = new Brick[78];
+        paddle = new Paddle(x,100,20);
+        ball = new Ball(400,500, 30);
+        brick = new Brick(5, 0, 60,20);
+
+        for (int i = 0; i < bricks.length; i++) {
+            bricks[i] = new Brick(10 + 13*i, i * 20, 60, 20);
+        }
     }
 
     /***
@@ -17,11 +28,13 @@ public class Game extends PApplet {
      * tick each object (have it update itself), and draw each object
      */
     public void draw() {
-        background(255);    // paint screen white
-        fill(0,255,0);          // load green paint color
-        ellipse(mouseX, mouseY, 60, 60);  // draw circle at mouse loc
-        ellipse(mouseX - 80, mouseY, 60, 60);  // draw circle at mouse loc
-        ellipse(mouseX + 80, mouseY, 60, 60);  // draw circle at mouse loc
+        background(0);
+        fill(0,0,255);
+        paddle.draw(this);
+        ball.draw(this);
+        for (Brick brick : bricks) {
+            brick.draw(this);
+        }
     }
 
     public static void main(String[] args) {
