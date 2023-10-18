@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class Game extends PApplet {
     // TODO: declare game variables
-
+    Paddle paddle;
+    Ball ball;
+    int x;
+    Brick brick;
+    Brick[] bricks;
     public void settings() {
         size(800, 800);   // set the window size
 
