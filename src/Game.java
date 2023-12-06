@@ -7,7 +7,6 @@ public class Game extends PApplet {
     Paddle paddle;
     Ball ball;
     int x;
-    Brick brick;
     ArrayList<Brick> bricks;
     public void settings() {
         size(800, 800);   // set the window size
@@ -44,6 +43,7 @@ public class Game extends PApplet {
 
         for (Brick brick : bricks) {
             brick.draw(this);
+            System.out.println(brick.x + ", " + brick.y);
         }
         ball.draw(this);
         ball.move(this);
