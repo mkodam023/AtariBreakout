@@ -18,8 +18,7 @@ public class Game extends PApplet {
         x = 200;
         bricks = new ArrayList<>();
         paddle = new Paddle(x,20, 100,20);
-        ball = new Ball(400,500, 30, 2,-5);
-        brick = new Brick(5, 0, 80,40);
+        ball = new Ball(400,600, 30, 2,-5);
 
         for (int i = 1; i < 12; i++) {
             for (int j = 0; j < 6; j++) {
@@ -40,6 +39,8 @@ public class Game extends PApplet {
         background(0);
         fill(0,0,255);
         paddle.draw(this);
+
+
 
         for (Brick brick : bricks) {
             brick.draw(this);
