@@ -24,13 +24,7 @@ public class Ball {
         return x;
     }
 
-//    public void setX(int x) {
-//        this.x = x;
-//    }
 
-    //public void bounce(){
-    //   ySpeed = -1*ySpeed;
-    // }
 
     public void draw(PApplet window) {
         window.fill(255, 0, 0);
@@ -43,6 +37,14 @@ public class Ball {
 
     public void yBorderBounce(PApplet window) {
         ySpeed = -ySpeed;
+    }
+
+    public void brickHitX(PApplet window){
+        this.xBorderBounce(window);
+    }
+
+    public void brickHitY(PApplet window){
+        this.yBorderBounce(window);
     }
 
     public void move(PApplet window) {

@@ -22,11 +22,14 @@ public class Game extends PApplet {
         ball = new Ball(400,500, 30, 2,-5);
         brick = new Brick(5, 0, 80,40);
 
-        for (int j = 0; j < 6; j++) {
-            for (int i = 0; i < 12; i++) {
-                bricks.add(new Brick(80 * i, j * 40, 80, 40));
+        for (int i = 1; i < 12; i++) {
+            for (int j = 0; j < 6; j++) {
+                bricks.add(new Brick(80, j * 40, 80, 40));
+              //  System.out.println(bricks.get(x));
+
             }
         }
+
 
     }
 
@@ -63,6 +66,21 @@ public class Game extends PApplet {
 
         if (ball.paddleCollision(paddle)){
             ball.yBorderBounce(this);
+
+        }
+
+        for (Brick value : bricks) {
+            if (ball.x >= value.x && ball.x <= value.x + 80) {
+
+                if (ball.y <= value.y) {
+
+
+
+                    value.ifHit(this);
+                    ball.yBorderBounce(this);
+
+                }
+            }
 
         }
     }
