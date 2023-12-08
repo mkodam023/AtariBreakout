@@ -16,15 +16,17 @@ public class Game extends PApplet {
 
     public void setup() {
         // TODO: initialize game variables
-        x = 200;
+        x = 0;
+        points  = 0;
         bricks = new ArrayList<>();
         paddle = new Paddle(x,20, 100,20);
         ball = new Ball(400,600, 30, 2,-5);
 
-        for (int i = 1; i < 12; i++) {
+        for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 6; j++) {
-                bricks.add(new Brick(80, j * 40, 80, 40));
-              //  System.out.println(bricks.get(x));
+                bricks.add(new Brick(i * 80, j * 40, 80, 40));
+
+
 
             }
         }
@@ -44,14 +46,14 @@ public class Game extends PApplet {
         text(points, 650, 750);
 
 
-
-        for (Brick brick : bricks) {
-            brick.draw(this);
-            System.out.println(brick.x + ", " + brick.y);
-        }
         ball.draw(this);
         ball.move(this);
         paddle.move(this);
+
+        for (Brick brick : bricks) {
+            brick.draw(this);
+        }
+
         if (ball.x>=800){
             ball.xBorderBounce(this);
         }
