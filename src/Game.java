@@ -7,6 +7,7 @@ public class Game extends PApplet {
     Paddle paddle;
     Ball ball;
     int x;
+    int points;
     ArrayList<Brick> bricks;
     public void settings() {
         size(800, 800);   // set the window size
@@ -39,6 +40,8 @@ public class Game extends PApplet {
         background(0);
         fill(0,0,255);
         paddle.draw(this);
+        textSize(100);
+        text(points, 650, 750);
 
 
 
@@ -65,24 +68,27 @@ public class Game extends PApplet {
             ball.yBorderBounce(this);
         }
 
-        if (ball.paddleCollision(paddle)){
+        if (ball.paddleLeftCollision(paddle)){
             ball.yBorderBounce(this);
-
+            if (ball.x>0) {
+                ball.leftPaddleHit(this);
+            }
+        }
+        if (ball.paddleRightCollision(paddle)){
+            ball.yBorderBounce(this);
+            if (ball.x<0){
+                ball.rightPaddleHit(this);
+            }
         }
 
         for (Brick value : bricks) {
             if (ball.x >= value.x && ball.x <= value.x + 80) {
-
-                if (ball.y <= value.y) {
-
-
-
+                if (ball.y <= value.y + 40) {
                     value.ifHit(this);
                     ball.yBorderBounce(this);
-
+                    points++;
                 }
             }
-
         }
     }
 
