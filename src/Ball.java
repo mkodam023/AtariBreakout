@@ -39,6 +39,10 @@ public class Ball {
         ySpeed = -ySpeed;
     }
 
+    public void leftPaddleHit(PApplet window){
+        xSpeed = -xSpeed;
+    }
+
     public void brickHitX(PApplet window){
         this.xBorderBounce(window);
     }
@@ -52,7 +56,15 @@ public class Ball {
         y -= ySpeed;
     }
 
-    public boolean paddleCollision(Paddle paddle){
-        return y >= 590&&y<=591 && x >= paddle.x && x <= paddle.x + 100;
+    public boolean paddleLeftCollision(Paddle paddle){
+        return y >= 590&&y<=591 && x >= paddle.x && x <= paddle.x + 50;
+    }
+
+    public void rightPaddleHit(Game game) {
+        xSpeed = -xSpeed;
+    }
+
+    public boolean paddleRightCollision(Paddle paddle) {
+        return y >= 590&&y<=591 && x >= paddle.x+50 && x <= paddle.x + 100;
     }
 }
