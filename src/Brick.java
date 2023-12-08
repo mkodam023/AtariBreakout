@@ -17,6 +17,7 @@ public class Brick {
     }
 
     public Brick(int x, int y, int xs, int ys){
+        this.x = x;
         this.y = y;
         ifHit = false;
         this.xSize = xs;
@@ -25,6 +26,9 @@ public class Brick {
 
     public int getX() {
         return x;
+    }
+    public int getY() {
+        return y;
     }
 
     public void setX(int x) {
