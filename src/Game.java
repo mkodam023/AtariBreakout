@@ -14,6 +14,7 @@ public class Game extends PApplet {
     int points;
     int lives;
     ArrayList<Brick> bricks;
+
     public void settings() {
         size(800, 800);   // set the window size
 
@@ -56,25 +57,31 @@ public class Game extends PApplet {
         ball.move(this);
         paddle.move(this);
 
+        // put bricks onto screen
         for (Brick brick : bricks) {
             brick.draw(this);
         }
 
-        if (ball.x>=800){
-            ball.xBorderBounce(this);
-        }
+            // ball going off-screen and losing a point
+            if (ball.y >= 800) {
+                ball.y = 300;
+                lives--;
+            }
 
-        if (ball.y>=800){
-            ball.y = 400;
-        }
 
-        if (ball.x<=0){
-            ball.xBorderBounce(this);
-        }
+            // hitting left and right sides of screen
+            if (ball.x < 0) {
+                ball.xBorderBounce(this);
+            }
+            if (ball.x > 800) {
+                ball.xBorderBounce(this);
+            }
 
-        if (ball.y<=0){
-            ball.yBorderBounce(this);
-        }
+
+            // hitting top of screen
+            if (ball.y <= 0) {
+                ball.yBorderBounce(this);
+            }
 
 
             // hitting left side of paddle
