@@ -25,7 +25,6 @@ public class Ball {
     }
 
 
-
     public void draw(PApplet window) {
         window.fill(255, 0, 0);
         window.ellipse(x, y, rad, rad);
@@ -39,16 +38,8 @@ public class Ball {
         ySpeed = -ySpeed;
     }
 
-    public void leftPaddleHit(PApplet window){
+    public void leftPaddleHit(PApplet window) {
         xSpeed = -xSpeed;
-    }
-
-    public void brickHitX(PApplet window){
-        this.xBorderBounce(window);
-    }
-
-    public void brickHitY(PApplet window){
-        this.yBorderBounce(window);
     }
 
     public void move(PApplet window) {
@@ -56,8 +47,8 @@ public class Ball {
         y -= ySpeed;
     }
 
-    public boolean paddleLeftCollision(Paddle paddle){
-        return y >= 590&&y<=591 && x >= paddle.x && x <= paddle.x + 50;
+    public boolean paddleLeftCollision(Paddle paddle) {
+        return y >= 590 && y <= 591 && x >= paddle.x && x <= paddle.x + 50;
     }
 
     public void rightPaddleHit(Game game) {
@@ -65,6 +56,6 @@ public class Ball {
     }
 
     public boolean paddleRightCollision(Paddle paddle) {
-        return y >= 590&&y<=591 && x >= paddle.x+50 && x <= paddle.x + 100;
+        return y >= 590 && y <= 591 && x > paddle.x + 50 && x <= paddle.x + 100;
     }
 }
