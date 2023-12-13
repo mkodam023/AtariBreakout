@@ -12,19 +12,6 @@ public class Ball {
         this.rad = rad;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-
     public void draw(PApplet window) {
         window.fill(255, 0, 0);
         window.ellipse(x, y, rad, rad);
