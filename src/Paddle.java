@@ -20,10 +20,6 @@ public class Paddle {
         this.y = y;
     }
 
-    public void ballHit(Ball ball) {
-        //if the ball hits the paddle change ball direction
-
-    }
 
     public void draw(PApplet window) {
         window.fill(255, 255, 255);
